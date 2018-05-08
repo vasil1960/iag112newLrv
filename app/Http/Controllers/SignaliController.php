@@ -17,7 +17,7 @@ class SignaliController extends Controller
         $data = [
             'title' => 'Тел. 112 - Начало',
             'jumbotron_title' => 'Начална страница',
-            'jumbotrontext'=> 'Регистър на сигналите подадени чрез тел. 112 към Изпълнигелна агенция по горите',
+            'jumbotrontext'=> '',
         ];
         
         return view( 'signali.index', $data );
