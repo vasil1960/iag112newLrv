@@ -20,3 +20,5 @@ Route::get('create', ['uses'=>'SignaliController@create', 'as'=>'create']);
 
 Route::get('/signal/{id}', ['uses'=>'SignaliController@show_one', 'as'=>'signal']);
 
+Route::get('/podelenie_autocomplete', ['uses' => 'AotocompleteController@podelenie_autocomplete', 'as' => 'podelenie_autocomplete' ]);
+
