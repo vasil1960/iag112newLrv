@@ -8,7 +8,7 @@
 
 @section('content')
 
-<form>
+<form style="">
 
     <div class="form-group row">
     <label for="signalfrom" class="col-md-2 control-label">Постъпил от:</label>

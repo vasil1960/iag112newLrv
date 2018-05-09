@@ -27,13 +27,13 @@
       @include('signali.layouts.inc.nav') 
     @show
 
-    <main role="main">
+    <main role="main"   style="background-color: beige;" >
 
       @section('jumbotron')
         @include('signali.layouts.inc.jumbotron')
       @show 
 
-        <div class="container">
+        <div class="container" style="padding: 10px">
 
           @yield('content')
 
