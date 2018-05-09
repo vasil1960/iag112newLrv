@@ -7,7 +7,13 @@
 @endsection
 
 @section('content')
-    <form style="">
+
+    
+
+    <form style="" action="" method="POST">
+
+        {{ csrf_field() }}
+
         <div class="form-group row">
         <label for="signalfrom" class="col-md-2 control-label">Постъпил от:</label>
         <div class="col-md-10">
@@ -18,6 +24,7 @@
                 <option value="3">Платформа НПО</option>
             </select>
         </div>
+        
         </div>  
 
         <div class="form-group row">
