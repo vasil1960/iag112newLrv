@@ -58,11 +58,25 @@ class SignaliController extends Controller
         if($request->isMethod('post')){
 
             $rules = [
-                'signalfrom' => 'required',
-                'signaldate' => 'required',
-                'name'       => 'required',
+                'signalfrom'     => 'required',
+                'signaldate'     => 'required|date',
+                'name'           => 'required',
+                'identnumber'    => 'required',
+                'pod_id'         => 'required',
+                'phone'          => 'required',
+                'opisanie'       => 'required',  
+                'narushenia'     => 'required',  
+                'send_to'        => 'required',  
+                'deistvie'       => 'required',
+                'deistvie_date'  => 'required|date',  
+                'deistvie'       => 'required',  
+                'deistvie'       => 'required',    
+                                                
+                
+
             ];
 
+            
             $this->validate($request, $rules);
             
             dump($request->all());

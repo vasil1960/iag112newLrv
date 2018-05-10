@@ -1,5 +1,7 @@
 $("#pod_id").select2({
   tags: true,
+  multiple: true,
+  tokenSeparators: [','],
   allowClear:true,
   multiple: false,
   minimumInputLength: 1,
