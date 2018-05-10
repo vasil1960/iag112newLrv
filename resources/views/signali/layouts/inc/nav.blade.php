@@ -29,7 +29,7 @@
                 <a class="nav-link" href="{{ route('create') }}">Нов сигнал</a>
             </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
 
@@ -44,7 +44,7 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-            </li>
+            </li> --}}
 
         </ul>
 

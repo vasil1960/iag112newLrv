@@ -81,7 +81,7 @@
         <div class="form-group row">
             <label for="opisanie" class="col-md-2 control-label">Описание:</label>
             <div class="col-md-10">
-                <textarea rows="4" name="opisanie" class="form-control" id="opisanie" placeholder="Описание на сигнала">{{ old('opisanie') }}</textarea>
+                <textarea rows="4" name="opisanie" class="form-control" id="opisanie" placeholder="Описание на сигнала"></textarea>
             </div>
         </div>
 
