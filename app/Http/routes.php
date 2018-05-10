@@ -16,7 +16,7 @@ Route::get('/', ['uses'=>'SignaliController@index', 'as'=>'home']);
 
 Route::get('signali', ['uses'=>'SignaliController@show', 'as'=>'signali']);
 
-Route::get('create', ['uses'=>'SignaliController@create', 'as'=>'create']);
+Route::match(['get','post'],'create', ['uses'=>'SignaliController@create', 'as'=>'create']);
 
 Route::get('/signal/{id}', ['uses'=>'SignaliController@show_one', 'as'=>'signal']);
 

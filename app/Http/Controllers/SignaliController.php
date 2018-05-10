@@ -53,7 +53,20 @@ class SignaliController extends Controller
         return view('signali.signal', $data);
     }
 
-    public function create(){
+    public function create(Request $request){
+
+        if($request->isMethod('post')){
+
+            $rules = [
+                'signalfrom' => 'required',
+                'signaldate' => 'required',
+                'name'       => 'required',
+            ];
+
+            $this->validate($request, $rules);
+            
+            dump($request->all());
+        }
         
         $data = [
             'title' => 'Тел. 112 - Нов сигнал',

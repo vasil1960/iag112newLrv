@@ -8,7 +8,15 @@
 
 @section('content')
 
-    
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error )
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form style="" action="" method="POST">
 
@@ -30,14 +38,14 @@
         <div class="form-group row">
             <label for="signaldate" class="col-md-2 control-label" autocomplete="off">Дата на сигнала:</label>
             <div class="col-md-10">
-                <input name="signaldate" type="text" class="form-control" id="signaldate" placeholder="Дата на регистриране на сигнала от служителя" value="">
+                <input name="signaldate" type="text" class="form-control" id="signaldate" placeholder="Дата на регистриране на сигнала от служителя" value="{{ old('signaldate') }}">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="identnumber" class="col-md-2 control-label">Идент. №:</label>
             <div class="col-md-10">
-                <input name="identnumber" type="text" class="form-control" id="identnumber" placeholder="Идентификационен номер от републиканския тел. 112" value="">
+                <input name="identnumber" type="text" class="form-control" id="identnumber" placeholder="Идентификационен номер от републиканския тел. 112" value="{{ old('identnumber') }}">
             </div>
         </div>
 
@@ -52,28 +60,28 @@
         <div class="form-group row">
             <label for="name2" class="col-md-2 control-label">Подател:</label>
             <div class="col-md-10">
-                <input name="name" type="text" class="form-control" id="name2" placeholder="Подател на сигнала" value="">
+                <input name="name" type="text" class="form-control" id="name2" placeholder="Подател на сигнала" value="{{ old('name') }}">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="phone" class="col-md-2 control-label">Телефон:</label>
             <div class="col-md-10">
-                <input name="phone" type="text" class="form-control" id="phone" placeholder="Телефонен номер от който е подаден сигнала" value="">
+                <input name="phone" type="text" class="form-control" id="phone" placeholder="Телефонен номер от който е подаден сигнала" value="{{ old('phone') }}">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="adress" class="col-md-2 control-label">Адрес:</label>
             <div class="col-md-10">
-                <input name="adress" type="text" class="form-control" id="adress" placeholder="Адрес на подателя на сигнала" value="">
+                <input name="adress" type="text" class="form-control" id="adress" placeholder="Адрес на подателя на сигнала" value="{{ old('adress') }}">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="opisanie" class="col-md-2 control-label">Описание:</label>
             <div class="col-md-10">
-                <textarea rows="4" name="opisanie" class="form-control" id="opisanie" placeholder="Описание на сигнала"></textarea>
+                <textarea rows="4" name="opisanie" class="form-control" id="opisanie" placeholder="Описание на сигнала">{{ old('opisanie') }}</textarea>
             </div>
         </div>
 
