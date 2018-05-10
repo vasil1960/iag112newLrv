@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Requests\AddSignaliRequest;
+
 use App\Signal;
 
 class SignaliController extends Controller
@@ -53,34 +55,7 @@ class SignaliController extends Controller
         return view('signali.signal', $data);
     }
 
-    public function create(Request $request){
-
-        if($request->isMethod('post')){
-
-            $rules = [
-                'signalfrom'     => 'required',
-                'signaldate'     => 'required|date',
-                'name'           => 'required',
-                'identnumber'    => 'required',
-                'pod_id'         => 'required',
-                'phone'          => 'required',
-                'opisanie'       => 'required',  
-                'narushenia'     => 'required',  
-                'send_to'        => 'required',  
-                'deistvie'       => 'required',
-                'deistvie_date'  => 'required|date',  
-                'deistvie'       => 'required',  
-                'deistvie'       => 'required',    
-                                                
-                
-
-            ];
-
-            
-            $this->validate($request, $rules);
-            
-            dump($request->all());
-        }
+    public function create(){
         
         $data = [
             'title' => 'Тел. 112 - Нов сигнал',
@@ -89,6 +64,24 @@ class SignaliController extends Controller
         ];
         
         return view( 'signali.create', $data );
+    }
+
+
+    public function store(AddSignaliRequest $request){
+
+        if($request->isMethod('post')){
+            
+            dump($request->all());
+        }
+
+        $data = [
+            'title' => 'Тел. 112 - Нов сигнал',
+            'jumbotron_title' => 'Нов сигнал',
+            'jumbotrontext'=> 'Въвеждане на нов сигнал',
+        ];
+        
+        return view( 'signali.create', $data );
+        
     }
 
 }
