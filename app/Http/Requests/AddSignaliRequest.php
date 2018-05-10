@@ -26,7 +26,7 @@ class AddSignaliRequest extends Request
         return [
             'signalfrom'     => 'required',
             'signaldate'     => 'required|date',
-            'name'           => 'required',
+            // 'name'           => 'required',
             'identnumber'    => 'required',
             'pod_id'         => 'required',
             'phone'          => 'required',
@@ -45,7 +45,7 @@ class AddSignaliRequest extends Request
         return [
             'signalfrom.required'     => "Попълването на полето 'Постъпил от:' е задължително",
             'signaldate.required'     => "Попълването на полето 'Дата на сигнала:' е задължително",
-            'name.required'           => "Попълването на полето 'Подател:' е задължително",
+            // 'name.required'           => "Попълването на полето 'Подател:' е задължително",
             'identnumber.required'    => "Попълването на полето 'Идент. №:' е задължително",
             'pod_id.required'         => "Попълването на полето 'Местоположение:' е задължително",
             'phone.required'          => "Попълването на полето 'Телефон:' е задължително",
