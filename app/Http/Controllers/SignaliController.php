@@ -13,20 +13,20 @@ use App\Signal;
 class SignaliController extends Controller
 {
  
- 
-    public function index(){
+    public function index(Request $request){
         
         $data = [
             'title' => 'Тел. 112 - Начало',
             'jumbotron_title' => 'Начална страница',
             'jumbotrontext'=> '',
         ];
+
+        // dd($request->sid);
         
         return view( 'signali.index', $data );
     } 
 
- 
- 
+
     public function show(){
 
        $signali = Signal::orderBy('id', 'DESC')->paginate(25);
@@ -81,7 +81,6 @@ class SignaliController extends Controller
         ];
         
         return view( 'signali.create', $data );
-        
     }
 
 }
