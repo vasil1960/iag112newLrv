@@ -10,15 +10,22 @@ use App\Http\Requests\AddSignaliRequest;
 
 use App\Signal;
 
+use App\IagSession;
+
+use Session;
+
 class SignaliController extends Controller
 {
  
-    public function index(Request $request){
+    public function index(Request $request, IagSession $iagsession){
+
+        dump($request->session()->all());
         
         $data = [
             'title' => 'Тел. 112 - Начало',
             'jumbotron_title' => 'Начална страница',
             'jumbotrontext'=> '',
+            'sid' => $request->session()->get('sid')
         ];
 
         // dd($request->sid);
@@ -27,22 +34,25 @@ class SignaliController extends Controller
     } 
 
 
-    public function show(){
+    public function show(Request $request){
 
+        // dump(Session::get('sid'));
+        dump($request->session()->all());
        $signali = Signal::orderBy('id', 'DESC')->paginate(25);
         
         $data = [
             'title' => 'Тел. 112 - Всички сигнали',
             'jumbotron_title' => 'Сигнали',
             'jumbotrontext'=> 'Всички сигнали получени чрез тел. 112',
-            'signali' => $signali
+            'signali' => $signali,
+            'sid' => $request->session()->get('sid')
         ];
         
         return view( 'signali.show', $data );
     }
 
-    public function show_one($id){
-
+    public function show_one(Request $request,$id){
+    // dump($request->session()->all());
         $signal = Signal::whereId($id)->first();
 
         $data = [
@@ -55,12 +65,13 @@ class SignaliController extends Controller
         return view('signali.signal', $data);
     }
 
-    public function create(){
-        
+    public function create(Request $request){
+        dump($request->session()->all());
         $data = [
             'title' => 'Тел. 112 - Нов сигнал',
             'jumbotron_title' => 'Нов сигнал',
             'jumbotrontext'=> 'Въвеждане на нов сигнал',
+            'sid' => $request->session()->get('sid')
         ];
         
         return view( 'signali.create', $data );
@@ -78,9 +89,22 @@ class SignaliController extends Controller
             'title' => 'Тел. 112 - Нов сигнал',
             'jumbotron_title' => 'Нов сигнал',
             'jumbotrontext'=> 'Въвеждане на нов сигнал',
+            'sid' => $request->session()->get('sid')
         ];
         
         return view( 'signali.create', $data );
+    }
+
+     public function restrict(Request $request){
+        // dump($request->session()->all());
+        $data = [
+            'title' => 'Тел. 112 - Без права',
+            'jumbotron_title' => 'Без права',
+            'jumbotrontext'=> 'Нямате права за работа с модула',
+            'sid' => $request->session()->get('sid')
+        ];
+        
+        return view( 'signali.restrict', $data );
     }
 
 }

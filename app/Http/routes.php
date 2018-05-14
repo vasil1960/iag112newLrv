@@ -10,17 +10,33 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+    //
+
+    // Route::get('/',['uses'=>'SignaliController@index', 'as'=>'home']);
+
+     Route::get('/restrict',['uses'=>'SignaliController@restrict', 'as'=>'restrict']);
+
+    Route::group(['middleware' => ['active_session']], function() {
+            
+        Route::get('/',['uses'=>'SignaliController@index', 'as'=>'home']);
+
+        Route::get('/logout', ['uses'=>'LogoutController@logout', 'as'=>'logout']);
+        
+        Route::get('signali', ['uses'=>'SignaliController@show', 'as'=>'signali']);
+
+        Route::get('create', ['uses'=>'SignaliController@create', 'as'=>'create']);
+
+        Route::post('create', 'SignaliController@store');
+
+        Route::get('/signal/{id}', ['uses'=>'SignaliController@show_one', 'as'=>'signal']);
+
+        Route::get('/podelenie_autocomplete', ['uses' => 'AotocompleteController@podelenie_autocomplete', 'as' => 'podelenie_autocomplete' ]);
+    });
 
 
-Route::get('/', ['uses'=>'SignaliController@index', 'as'=>'home']);
 
-Route::get('signali', ['uses'=>'SignaliController@show', 'as'=>'signali']);
+    
 
-Route::get('create', ['uses'=>'SignaliController@create', 'as'=>'create']);
 
-Route::post('create', 'SignaliController@store');
 
-Route::get('/signal/{id}', ['uses'=>'SignaliController@show_one', 'as'=>'signal']);
-
-Route::get('/podelenie_autocomplete', ['uses' => 'AotocompleteController@podelenie_autocomplete', 'as' => 'podelenie_autocomplete' ]);
 

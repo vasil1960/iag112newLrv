@@ -18,15 +18,19 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}">Начална страница<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('home', ['sid'=>$sid]) }}">Начална страница<span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('signali') }}">Сигнали</a>
+                <a class="nav-link" href="{{ route('signali', ['sid'=>$sid]) }}">Сигнали</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('create') }}">Нов сигнал</a>
+                <a class="nav-link" href="{{ route('create', ['sid'=>$sid]) }}">Нов сигнал</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout', ['sid'=>$sid]) }}">Изход</a>
             </li>
 
             {{-- <li class="nav-item">

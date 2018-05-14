@@ -17,7 +17,10 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-       \App\Http\Middleware\AbortIfAccess112IsNull::class,
+        // \App\Http\Middleware\AccessAndActiveSession::class,
+        // \App\Http\Middleware\Access112::class,
+       
+        
     ];
 
     /**
@@ -52,6 +55,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'notuser' => \App\Http\Middleware\RedirectIfAccess112IsNull::class,
+        'active_session' => \App\Http\Middleware\AccessAndActiveSession::class,
     ];
 }
