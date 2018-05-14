@@ -12,18 +12,19 @@ class LogoutController extends Controller
 {
     public function logout(Request $request){
 
-        $as = $request->session()->get('ActiveSession');
+        // $as = $request->session()->get('ActiveSession');
         $sid =$request->session()->get('sid');
-        dump($sid);
-        if($as){
+      
+        if($sid){
+
             $iagsession = IagSession::where('ID', $sid)->first();
-            dump($iagsession);
             $iagsession->update(['ActiveSession' => 0]);
             $iagsession ->save();
+
+            $request->session()->flush();
         }
-
-        $request->session()->flush();
-
+        // return redirect()->route('signali.restrict');
         return redirect('https://system.iag.bg');
+        // abort('404');
     }
 }

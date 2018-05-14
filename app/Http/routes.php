@@ -14,7 +14,10 @@
 
     // Route::get('/',['uses'=>'SignaliController@index', 'as'=>'home']);
 
-     Route::get('/restrict',['uses'=>'SignaliController@restrict', 'as'=>'restrict']);
+    // Route::get('/restrict',['uses'=>'SignaliController@restrict', 'as'=>'restrict']);
+    
+    Route::get('/podelenie_autocomplete', ['uses' => 'AotocompleteController@podelenie_autocomplete', 'as' => 'podelenie_autocomplete' ]);
+
 
     Route::group(['middleware' => ['active_session']], function() {
             
@@ -30,7 +33,6 @@
 
         Route::get('/signal/{id}', ['uses'=>'SignaliController@show_one', 'as'=>'signal']);
 
-        Route::get('/podelenie_autocomplete', ['uses' => 'AotocompleteController@podelenie_autocomplete', 'as' => 'podelenie_autocomplete' ]);
     });
 
 

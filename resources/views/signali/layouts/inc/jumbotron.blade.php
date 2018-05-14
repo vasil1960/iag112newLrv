@@ -3,7 +3,7 @@
 <div class="jumbotron" style="text-align: center; background-color: cadetblue">
 
     <div class="container" style="color: cornsilk">
-        <h2 class="display-3">{{ $jumbotron_title }}</h2>
+        <h4 class="display-4">{{ $jumbotron_title }}</h4>
         <h5>{{ $jumbotrontext }}</h5>
     </div>
 

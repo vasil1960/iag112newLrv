@@ -33,6 +33,10 @@
                 <a class="nav-link" href="{{ route('logout', ['sid'=>$sid]) }}">Изход</a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" >{{ Session::get('username') }}</a>
+            </li>
+
             {{-- <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>

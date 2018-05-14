@@ -62,9 +62,9 @@
               targets: 7,
               visible:true,
               sortable:false,
-              render:function(data, type,row,meta)
+              render:function(data, type, row, meta)
               {
-                return "<a class='btn btn-outline-info' href='signal/" + row[0] + "'>Още...</a>";
+                return "<a class='btn btn-outline-info' href='signal/" + row[0] + "/?sid={{ Session::get('sid') }}'>Още...</a>";
               }
             }
         ]

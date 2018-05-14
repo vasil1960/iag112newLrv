@@ -12,9 +12,17 @@ class IagSession extends Model
 
     public $timestamps = false;
 
-     protected $fillable = ['ActiveSession'];
+    protected $fillable = ['ActiveSession'];
+
+    public function iaguser(){
+
+        $this->belongsTo( IagUser::class,'ID', 'userId' );
+
+    }
 
 
     // protected $connection = 'mysql';
+
+
 
 }

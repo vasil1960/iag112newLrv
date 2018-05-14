@@ -18,9 +18,7 @@ class SignaliController extends Controller
 {
  
     public function index(Request $request, IagSession $iagsession){
-
-        dump($request->session()->all());
-        
+  
         $data = [
             'title' => 'Тел. 112 - Начало',
             'jumbotron_title' => 'Начална страница',
@@ -36,8 +34,6 @@ class SignaliController extends Controller
 
     public function show(Request $request){
 
-        // dump(Session::get('sid'));
-        dump($request->session()->all());
        $signali = Signal::orderBy('id', 'DESC')->paginate(25);
         
         $data = [
@@ -51,22 +47,22 @@ class SignaliController extends Controller
         return view( 'signali.show', $data );
     }
 
-    public function show_one(Request $request,$id){
-    // dump($request->session()->all());
+    public function show_one(Request $request, $id){
+
         $signal = Signal::whereId($id)->first();
 
         $data = [
             'title' => 'Сигнал №: '. $id,
             'jumbotron_title' => 'Сигнал №: '.$id,
             'signal' => $signal,
-            'jumbotrontext'=> 'Подробно описание на конкретен сигнал №: '.$id
+            'jumbotrontext'=> 'Подробно описание на конкретен сигнал №: '.$id,
+            'sid' => $request->session()->get('sid')
         ];
         
         return view('signali.signal', $data);
     }
 
     public function create(Request $request){
-        dump($request->session()->all());
         $data = [
             'title' => 'Тел. 112 - Нов сигнал',
             'jumbotron_title' => 'Нов сигнал',
@@ -82,6 +78,8 @@ class SignaliController extends Controller
 
         if($request->isMethod('post')){
             
+            /////////////
+            
             dump($request->all());
         }
 
@@ -96,7 +94,7 @@ class SignaliController extends Controller
     }
 
      public function restrict(Request $request){
-        // dump($request->session()->all());
+
         $data = [
             'title' => 'Тел. 112 - Без права',
             'jumbotron_title' => 'Без права',
