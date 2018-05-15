@@ -29,12 +29,17 @@
                 <a class="nav-link" href="{{ route('create', ['sid'=>$sid]) }}">Нов сигнал</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('logout', ['sid'=>$sid]) }}">Изход</a>
+            
+        </ul>
+        
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item" >
+                <a class="nav-link" >Потребител: {{ Session::get('username') }} ( {{ Session::get('FullName') }} - {{ Session::get('Podelenie') }} )</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" >{{ Session::get('username') }}</a>
+                <a class="nav-link" href="{{ route('logout', ['sid'=>$sid]) }}">Изход</a>
             </li>
 
             {{-- <li class="nav-item">

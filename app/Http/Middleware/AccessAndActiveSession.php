@@ -24,7 +24,7 @@ class AccessAndActiveSession
 
         $result = $iagsession->where('ID', $request->sid)->first();
 
-        // dump($iagsession->iaguser);
+        // dump($result->iaguser->Name);
         
 
         if($result->ActiveSession !== 0 && $result->Access112 !== 0){
@@ -37,7 +37,8 @@ class AccessAndActiveSession
                         'Access112'       => $result->Access112,
                         'Access'          => $result->Access,
                         'ActiveSession'   => $result->ActiveSession,
-                        'FullName'        => ''
+                        'FullName'        => $result->iaguser->Name .' '. $result->iaguser->Familia,
+                        'Podelenie'       => $result->iaguser->Podelenie
                     ]);
             return $next($request);
         }

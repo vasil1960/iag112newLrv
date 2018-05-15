@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\IagUser;
+
 class IagSession extends Model
 {
     protected $table = "nug.sessions";
@@ -16,7 +18,7 @@ class IagSession extends Model
 
     public function iaguser(){
 
-        $this->belongsTo( IagUser::class,'ID', 'userId' );
+        return $this->hasOne( 'App\IagUser','ID', 'userId' );
 
     }
 

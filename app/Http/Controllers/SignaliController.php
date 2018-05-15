@@ -18,7 +18,9 @@ class SignaliController extends Controller
 {
  
     public function index(Request $request, IagSession $iagsession){
-  
+        
+        dump(Session::all());
+
         $data = [
             'title' => 'Тел. 112 - Начало',
             'jumbotron_title' => 'Начална страница',
@@ -34,13 +36,14 @@ class SignaliController extends Controller
 
     public function show(Request $request){
 
-       $signali = Signal::orderBy('id', 'DESC')->paginate(25);
+        
+        // $signali = Signal::orderBy('id', 'DESC')->paginate(25);
         
         $data = [
             'title' => 'Тел. 112 - Всички сигнали',
             'jumbotron_title' => 'Сигнали',
             'jumbotrontext'=> 'Всички сигнали получени чрез тел. 112',
-            'signali' => $signali,
+            // 'signali' => $signali,
             'sid' => $request->session()->get('sid')
         ];
         
