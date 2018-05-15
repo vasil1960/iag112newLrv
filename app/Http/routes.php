@@ -18,6 +18,8 @@
     
     Route::get('/podelenie_autocomplete', ['uses' => 'AotocompleteController@podelenie_autocomplete', 'as' => 'podelenie_autocomplete' ]);
 
+    Route::post('create', 'SignaliController@store');
+
 
     Route::group(['middleware' => ['active_session']], function() {
             
@@ -29,7 +31,7 @@
 
         Route::get('create', ['uses'=>'SignaliController@create', 'as'=>'create']);
 
-        Route::post('create', 'SignaliController@store');
+        
 
         Route::get('/signal/{id}', ['uses'=>'SignaliController@show_one', 'as'=>'signal']);
 
